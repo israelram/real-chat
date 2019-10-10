@@ -21,7 +21,7 @@ export default new Vuex.Store({
         reconnect: false,
         activeRoom: null,
         rooms: [],
-        users: []
+        users: [],
         messages: [],
         userTyping: null
     },
