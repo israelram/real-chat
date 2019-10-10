@@ -4,16 +4,16 @@ const INSTANCE_LOCATOR = process.env.VUE_APP_INSTANCE_LOCATOR;
 const TOKEN_URL = process.env.VUE_APP_TOKEN_URL;
 const MESSAGE_LIMIT = Number(process.env.VUE_APP_MESSAGE_LIMIT) || 10;
 
-currentUser = null;
-activeRoom = null;
+let currentUser = null;
+let activeRoom = null;
 
 async function connectUser(userId) {
-    const ChatManager = new ChatManager({
+    const chatManager = new ChatManager({
         instanceLocator: INSTANCE_LOCATOR,
         tokenProvider: new TokenProvider({ url: TOKEN_URL }),
         userId
     });
-    currentUser = await ChatManager.connect();
+    currentUser = await chatManager.connect();
     return currentUser;
 }
 
