@@ -35,12 +35,19 @@ export default {
             commit('setReconnect', false);
 
             return true;
-            // Test state.user
-            console.log(state.user);
         } catch (error) {
             handleError(commit, error)
         } finally {
             commit('setLoading', false);
         }
-    }
+    },
+
+    async changeRoom({ commit }, roomId) {
+        try {
+            const { id, name } = await chatkit.subscribeToRoom(roomId);
+            commit('setActiveRoom', { id, name });
+        } catch (error) {
+            handleError(commit, error)
+        }
+    },
 }
