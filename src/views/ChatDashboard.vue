@@ -47,9 +47,9 @@ export default {
         MessageForm
     },
     computed: {
-        ...mapState({
+        ...mapState([
             'loading'
-        })
+        ])
     }
 }
 </script>
